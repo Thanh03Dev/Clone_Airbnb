@@ -42,7 +42,9 @@ export default async function RootLayout({
           {/* <Modal actionLabel='Submit' title='Hello World' isOpen /> */}
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        {children}
+        <div className='pb-20 pt-28'>
+          {children}
+        </div>
       </body>
     </html>
   )
