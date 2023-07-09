@@ -6,10 +6,10 @@ import Categories from "./Categories";
 import Logo from "./Logo";
 import { Search } from "./Search";
 import UserMenu from "./UserMenu";
-import { StafeUser } from "@/app/types";
+import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-  currentUser?: StafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({

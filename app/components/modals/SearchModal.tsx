@@ -193,6 +193,8 @@ const SearchModal = () => {
             secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
             body={bodyContent}
             secondaryActionLabel={secondaryActionLabel}
+
+            footer={<div></div>}
         />
     )
 }

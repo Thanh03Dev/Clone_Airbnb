@@ -1,5 +1,3 @@
-'use client';
-
 import { SafeUser } from '@/app/types';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import useFavorite from '../hooks/useFavorite';
@@ -32,17 +30,15 @@ const HeartButton: React.FC<HeartButtonProps> = ({
         >
             <AiOutlineHeart
                 size={28}
-                className="fill-white absolute -top-[2px] -right-[2px] "
+                {...{ className: 'fill-white absolute -top-[2px] -right-[2px]' }}
             />
 
             <AiFillHeart
                 size={24}
-                className={hasFavorited ? 'fill-rose-500' : 'fill-neutral-500/70'}
-
-
+                {...{ className: hasFavorited ? 'fill-rose-500' : 'fill-neutral-500/70' }}
             />
         </div>
     )
 }
 
-export default HeartButton
+export default HeartButton;

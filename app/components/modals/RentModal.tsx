@@ -279,6 +279,8 @@ const RentModal = () => {
 
             body={bodyContent}
 
+            footer={<div></div>}
+
         />
     )
 }

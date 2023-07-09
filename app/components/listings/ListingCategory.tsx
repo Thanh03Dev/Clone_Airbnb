@@ -17,7 +17,7 @@ const ListingCategory: React.FC<ListingCategoryProps> = ({
         <div className=" flex flex-col gap-6">
             <div className="flex flex-row items-center gap-4">
                 <Icon size={40}
-                    className="text-neutral-600"
+                    {...{ className: 'text-neutral-600' }}
                 />
 
                 <div className="flex flex-col">
