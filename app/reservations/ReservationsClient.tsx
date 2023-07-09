@@ -54,7 +54,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
                     2xl:grid-cols-6
                     gap-8
                     ">
-                {reservations.map((reservation) => (
+                {reservations.map((reservation: any) => (
                     <ListingCard
                         key={reservation.id}
                         data={reservation.listing}

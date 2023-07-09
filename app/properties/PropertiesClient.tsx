@@ -23,7 +23,7 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
     const router = useRouter();
     const [deletingId, setDeletingId] = useState('');
 
-    const onCancel = useCallback((id: string) => {
+    const onDelete = useCallback((id: string) => {
         setDeletingId(id);
 
         axios.delete(`/api/listing/${id}`)
@@ -62,10 +62,10 @@ const PropertiesClient: React.FC<PropertiesClientProps> = ({
                 {listings.map((listing: any) => (
                     <ListingCard
                         key={listing.id}
-                        data={listing.listing}
+                        data={listing}
                         actionId={listing.id}
-                        onAction={onCancel}
-                        disabled={listing === listing.id}
+                        onAction={onDelete}
+                        disabled={deletingId === listing.id}
                         actionLabel="Delete property"
                         currentUser={currentUser}
                     />

@@ -2,8 +2,6 @@
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
-import getReservations from "../actions/getReservations";
-import TripsClient from "./PropertiesClient";
 import getListings from "../actions/getListings";
 import PropertiesClient from "./PropertiesClient";
 
@@ -12,12 +10,10 @@ const PropertiesPage = async () => {
 
     if (!currentUser) {
         return (
-            <ClientOnly>
-                <EmptyState
-                    title="Unauthorized"
-                    subtitle="Please login"
-                />
-            </ClientOnly>
+            <EmptyState
+                title="Unauthorized"
+                subtitle="Please login"
+            />
         )
     }
 

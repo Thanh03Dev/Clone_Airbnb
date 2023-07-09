@@ -7,7 +7,6 @@ import getReservations from "@/app/actions/getReservations";
 
 interface IParams {
     listingId?: string;
-
 }
 
 const ListingPage = async ({ params }: { params: IParams }) => {
