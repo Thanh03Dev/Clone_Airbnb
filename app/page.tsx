@@ -25,8 +25,6 @@ const Home = async ({ searchParams }: HomeProps) => {
     )
   }
 
-  throw new Error('Something went wrong');
-
   return (
     <ClientOnly>
       <Container>
@@ -45,4 +43,5 @@ const Home = async ({ searchParams }: HomeProps) => {
     </ClientOnly>
   )
 }
+
 export default Home

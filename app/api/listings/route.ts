@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import prima from "@/app/libs/prismadb";
+import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 
 
@@ -32,7 +32,7 @@ export async function POST(
         }
     })
 
-    const listing = await prisma?.listing.create({
+    const listing = await prisma.listing.create({
         data: {
             title,
             description,
