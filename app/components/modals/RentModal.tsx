@@ -60,6 +60,7 @@ const RentModal = () => {
 
     const category = watch('category');
     const location = watch('location');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const Map = useMemo(() => dynamic(() => import('../Map'), { ssr: false }), [location]);
     const guestCount = watch('guestCount');
 
