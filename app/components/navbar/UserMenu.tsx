@@ -1,6 +1,5 @@
 "use client";
-
-import { AiOutlineMenu } from "react-icons/ai"
+import { Menu } from "@mui/icons-material";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
@@ -11,6 +10,7 @@ import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useRentModal from "@/app/hooks/useRentModal";
 import { useRouter } from "next/navigation";
+import { SvgIcon } from "@mui/material";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -50,7 +50,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
         <div
           onClick={toggleOpen}
           className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition">
-          <AiOutlineMenu />
+          <SvgIcon component={Menu} />
 
           <div className="hidden md:block">
             <Avatar src={currentUser?.image} />
@@ -79,9 +79,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
             )}
           </div>
         </div>
-      )
-      }
-    </div >
+      )}
+    </div>
   );
 };
 
