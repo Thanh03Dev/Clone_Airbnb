@@ -1,7 +1,9 @@
 'use client';
+
 import { signIn } from 'next-auth/react';
 import axios from "axios";
-import { GitHub, Google } from "@mui/icons-material";
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import {
     FieldValues,
@@ -65,7 +67,7 @@ const LoginModal = () => {
     const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading
-                title="Welcome back!"
+                title="Welcome to back!"
                 subtitle="Login to your account!"
             />
 
@@ -97,21 +99,21 @@ const LoginModal = () => {
             <Button
                 outline
                 label="Continue with Google"
-                icon={<Google />}
+                icon={FcGoogle}
                 onClick={() => signIn('google')}
             />
 
             <Button
                 outline
                 label="Continue with Github"
-                icon={<GitHub />}
+                icon={AiFillGithub}
                 onClick={() => signIn('github')}
             />
 
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="justify-center flex flex-row items-center gap-2">
                     <div>First time using Airbnb?</div>
-                    <div onClick={toggle} className="text-neutral-800 cursor-pointer hover:underline">Create an account!</div>
+                    <div onClick={toggle} className="text-neutral-800 cursor-pointer hover:underline">Create an account !</div>
                 </div>
             </div>
         </div>
