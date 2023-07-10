@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import { GitHub, Google } from "@mui/icons-material";
 import { useCallback, useState } from "react";
