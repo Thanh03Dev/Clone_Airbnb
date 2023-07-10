@@ -1,3 +1,5 @@
+'use client'
+
 import { GetServerSideProps, NextPage } from 'next';
 import { useEffect } from 'react';
 import getCurrentUser from "./actions/getCurrentUser";
@@ -8,7 +10,7 @@ import EmptyState from "./components/EmptyState";
 import ListingCard from "./components/listings/ListingCard";
 
 interface HomeProps {
-  listings: any[]; // Thay any[] bằng kiểu dữ liệu thích hợp cho listings
+  listings: any[]; // Thay any[] bằng kiểu dữ liệu thích hợp cho listing
   currentUser: any; // Thay any bằng kiểu dữ liệu thích hợp cho currentUser
 }
 
