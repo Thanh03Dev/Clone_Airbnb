@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from "react";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { Remove, Add } from "@mui/icons-material";
 
 interface CounterProps {
     title: string;
@@ -9,12 +9,8 @@ interface CounterProps {
     value: number;
     onChange: (value: number) => void;
 }
-const Counter: React.FC<CounterProps> = ({
-    title,
-    subtitle,
-    value,
-    onChange
-}) => {
+
+const Counter: React.FC<CounterProps> = ({ title, subtitle, value, onChange }) => {
     const onAdd = useCallback(() => {
         onChange(value + 1);
     }, [onChange, value]);
@@ -24,36 +20,33 @@ const Counter: React.FC<CounterProps> = ({
             return;
         }
 
-        onChange(value - 1)
+        onChange(value - 1);
     }, [value, onChange]);
+
     return (
-        <div className="flex  flex-row items-center justify-between">
+        <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col">
-                <div className="font-medium">
-                    {title}
-                </div>
-                <div className="font-light text-gray-600">
-                    {subtitle}
-                </div>
+                <div className="font-medium">{title}</div>
+                <div className="font-light text-gray-600">{subtitle}</div>
             </div>
 
-            <div className="flex flex-row items-center gap-4    ">
-                <div onClick={onReduce}
+            <div className="flex flex-row items-center gap-4">
+                <div
+                    onClick={onReduce}
                     className="w-10 h-10 rounded-full border-[1px] flex items-center justify-center text-neutral-600 cursor-pointer hover:opacity-80 transition"
                 >
-                    <AiOutlineMinus />
+                    <Remove />
                 </div>
-                <div className="font-light text-xl text-neutral-600">
-                    {value}
-                </div>
-                <div onClick={onAdd}
+                <div className="font-light text-xl text-neutral-600">{value}</div>
+                <div
+                    onClick={onAdd}
                     className="w-10 h-10 rounded-full border-[1px] flex items-center justify-center text-neutral-600 cursor-pointer hover:opacity-80 transition"
                 >
-                    <AiOutlinePlus />
+                    <Add />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Counter
+export default Counter;
