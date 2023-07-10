@@ -1,4 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
+import { useEffect } from 'react';
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ClientOnly from "./components/ClientOnly";
@@ -12,6 +13,10 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ listings, currentUser }) => {
+  useEffect(() => {
+    // Do something with listings and currentUser if needed
+  }, [listings, currentUser]);
+
   if (listings.length === 0) {
     return (
       <ClientOnly>
@@ -42,15 +47,27 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
     // Các thông số tìm kiếm
   };
 
-  const listings = await getListings(searchParams);
-  const currentUser = await getCurrentUser();
+  try {
+    const [listings, currentUser] = await Promise.all([
+      getListings(searchParams),
+      getCurrentUser(),
+    ]);
 
-  return {
-    props: {
-      listings,
-      currentUser,
-    },
-  };
+    return {
+      props: {
+        listings,
+        currentUser,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        listings: [],
+        currentUser: null,
+      },
+    };
+  }
 };
 
 export default Home;
